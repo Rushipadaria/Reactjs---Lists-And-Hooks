@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        details {
+            width: 100%;
+            margin-top: 5%;
+        }
+
+        summary {
+            width: 50%;
+            font-size: 18px;
+        }
+
+        details img {
+            width: 450px;
+        }
+
+        details p {
+            background-color: rgba(135, 143, 143, 0.5);
+            padding: 5px;
+            font-size: 18px;
+        }
+
+        details li {
+            padding: 0px 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <details>
+        <summary>
+            <span>Q-1. Explain Life cycle in Class Component and functional component with Hooks</span>
+        </summary>
+        <p>
+            In React, components are the building blocks of the user interface, and they can be divided into two main <br>
+            types: class components and functional components. Each component goes through a lifecycle consisting of <br>
+            various stages from initialization to destruction.<br>
+            ### Class Component Lifecycle:<br>
+            Class components in React have a lifecycle that can be divided into three main phases:<br>
+
+            1. **Mounting**: These methods are called when an instance of the component is being created and inserted<br>
+            into the DOM.<br>
+            - `constructor()`: The constructor is called before the component is mounted. It's used for initializing<br>
+            state and binding event handlers.<br>
+            - `componentWillMount()`: Deprecated. Called just before mounting occurs.<br>
+            - `render()`: The render method is required and is responsible for returning the JSX that represents the<br>
+            component's UI.<br>
+            - `componentDidMount()`: Called after the component is mounted and its element is rendered into the DOM.<br>
+            It's often used for fetching data from an API or initializing third-party libraries.<br>
+            2. **Updating**: These methods are called when a component is being re-rendered as a result of changes to<br>
+            either its props or state.<br>
+            - `shouldComponentUpdate(nextProps, nextState)`: Allows you to control if the component should re-render or<br>
+            not. It returns a boolean value.<br>
+            - `componentWillUpdate(nextProps, nextState)`: Deprecated. Called just before the component is re-rendered.<br>
+            - `render()`: Re-renders the component.<br>
+            - `componentDidUpdate(prevProps, prevState)`: Called after the component has been re-rendered. It's often<br>
+            used for performing DOM operations or updating the state based on props changes.<br>
+            3. **Unmounting**: These methods are called when a component is being removed from the DOM.<br>
+            - `componentWillUnmount()`: Called just before the component is unmounted and destroyed. It's used for<br>
+            cleaning up any resources like event listeners or subscriptions.<br>
+            ### Functional Component with Hooks Lifecycle:<br>
+            With the introduction of Hooks in React, functional components can now also manage state and lifecycle<br>
+            behaviors. The primary hooks used for managing lifecycle in functional components are `useEffect()` and<br>
+            `useLayoutEffect()`. <br>
+            - **`useEffect()`**: It serves the purpose of `componentDidMount`, `componentDidUpdate`, and<br>
+            `componentWillUnmount` combined.<br>
+            ```javascript<br>
+            import React, { useEffect } from 'react';<br>
+            function FunctionalComponent() {<br>
+            useEffect(() => {<br>
+            return () => {<br>
+            };<br>
+            }, [/* Dependencies */]);<br>
+            return (<br>
+            // JSX representing the component's UI<br>
+            );<br>
+            } <br>
+            ```<br>
+            - **`useLayoutEffect()`**: Similar to `useEffect()`, but it runs synchronously after all DOM mutations. It<br>
+            can be used if you need to read layout from the DOM and then immediately re-render.<br>
+            Both hooks take a function as the first argument, which represents the effect to perform. The second<br>
+            argument is an optional array of dependencies. If provided, the effect will only run if one of the<br>
+            dependencies has changed between re-renders.<br>
+            In summary, while class components have distinct lifecycle methods, functional components with hooks provide<br>
+            a more streamlined approach to managing component lifecycle. They enable developers to encapsulate logic<br>
+            related to different lifecycle stages within the component itself.<br>
+        </p>
+    </details>
+
+</body>
+
+</html>
